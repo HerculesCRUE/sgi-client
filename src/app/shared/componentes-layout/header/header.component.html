@@ -1,0 +1,74 @@
+<header class="navbar header">
+  <div fxLayout.xs="row wrap" fxLayout="row wrap" fxLayoutGap="10px">
+
+    <!-- Columna menu movil (xs-sm) y logos-->
+    <div fxFlex.xs="0 1 calc(65%-10px)" fxFlex.sm="0 1 calc(48%-10px)" fxFlex.md="0 1 calc(33%-10px)"
+      fxFlex.gt-md="0 1 calc(33%-10px)">
+      <div class="menu">
+        <button fxHide fxShow.sm fxShow.xs mat-icon-button (click)="toggleSidenav()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div class="logos" fxLayoutAlign.xs="flex-end">
+        <div class="hercules">
+          <a href="#">
+            <img src="assets/img/hercules-logo-min.png" alt="">
+          </a>
+        </div>
+        <div class="universidad">
+          <a href="#">
+            <img src="http://placehold.it/150x50?text=Logo" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- FIN Columna menu movil (xs-sm) y logos-->
+
+    <!-- menu-secundario movil (xs-sm) -->
+    <div fxHide fxShow.xs fxLayoutAlign="flex-end" fxFlex.xs="0 1 calc(35%-10px)" fxFlex.sm="0 1 calc(50%-10px)"
+      fxFlex.md="0 1 calc(33%-10px)" fxFlex.gt-md="0 1 calc(33%-10px)" class="icons-options devices">
+      <button mat-icon-button [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu class="mat-menu" #menu="matMenu">
+        <app-menu-secundario class="icons-responsive"></app-menu-secundario>
+      </mat-menu>
+    </div>
+    <!-- FIN menu-secundario (xs-sm) -->
+
+    <!-- menu-secundario pantallas grandes -->
+    <div fxHide fxShow.sm fxFlex.sm="0 1 calc(50%-10px)" fxFlex.md="0 1 calc(33%-10px)"
+      fxFlex.gt-md="0 1 calc(33%-10px)">
+      <div fxLayoutAlign="flex-end" class="icons-options desktop">
+        <app-menu-secundario class="inline"></app-menu-secundario>
+      </div>
+    </div>
+    <!-- FIN menu-secundario pantallas grandes -->
+
+    <!-- Modulos app -->
+    <div fxLayoutAlign.sm="center center" fxLayoutAlign.xs="center center" fxFlex.xs="0 1 calc(100%-10px)"
+      fxFlex.sm="0 1 calc(100%-10px)" fxFlex.md="0 1 calc(33%-10px)" fxFlex.gt-md="0 1 calc(33%-10px)">
+      <div class="select-modulo" id="seleccionarModulo" [formGroup]="formGroup">
+        <mat-form-field>
+          <mat-select formControlName="module" (selectionChange)="navigateTo($event.value)">
+            <mat-option [value]="'modulo1'">{{'header.module.cat' | translate}}</mat-option>
+            <mat-option [value]="'modulo2'">{{'header.module.ebt' | translate}}</mat-option>
+            <mat-option [value]="'modulo3'">{{'header.module.pii' | translate}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <!-- FIN Modulos app-->
+
+    <!-- Menu secundario pantallas grandes (md,lg,xl) -->
+    <div fxHide fxShow.md fxShow.lg fxShow.xl fxFlex.sm="0 1 calc(50%-10px)" fxFlex.md="0 1 calc(33%-10px)"
+      fxFlex.gt-md="0 1 calc(33%-10px)">
+      <div fxLayoutAlign="flex-end" class="icons-options desktop">
+        <app-menu-secundario class="inline"></app-menu-secundario>
+      </div>
+    </div>
+    <!-- FIN Menu secundario pantallas grandes (md,lg,xl) -->
+
+  </div>
+</header>
